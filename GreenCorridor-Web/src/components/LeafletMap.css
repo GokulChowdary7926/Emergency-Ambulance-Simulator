@@ -1,0 +1,118 @@
+.leaflet-map-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.leaflet-container {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+  background: #1a1a2e;
+}
+
+.map-popup {
+  min-width: 150px;
+}
+
+.map-popup strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #0066CC;
+  font-size: 14px;
+}
+
+.map-popup p {
+  margin: 4px 0;
+  font-size: 12px;
+  color: #333;
+}
+
+.map-controls-overlay {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.map-info-panel {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(20, 20, 35, 0.95) 100%);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  min-width: 150px;
+}
+
+.map-info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  gap: 10px;
+}
+
+.map-info-item:last-child {
+  margin-bottom: 0;
+}
+
+.map-info-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.map-info-value {
+  font-size: 13px;
+  color: #00CC66;
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+}
+
+/* Minimap variant (smaller size) */
+.leaflet-map-container.minimap {
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  overflow: hidden;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 102, 204, 0.5);
+}
+
+.leaflet-map-container.minimap .leaflet-container {
+  border-radius: 100px;
+}
+
+/* Fullscreen map variant */
+.leaflet-map-container.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10000;
+  border-radius: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .map-info-panel {
+    min-width: 120px;
+    padding: 8px;
+  }
+
+  .map-info-label {
+    font-size: 10px;
+  }
+
+  .map-info-value {
+    font-size: 11px;
+  }
+}
+

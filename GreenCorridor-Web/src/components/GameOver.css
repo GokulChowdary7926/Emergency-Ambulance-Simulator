@@ -1,0 +1,156 @@
+.game-over-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20000;
+  animation: fadeIn 0.3s ease;
+}
+
+.game-over-modal {
+  background: linear-gradient(135deg, rgba(20, 20, 30, 0.95) 0%, rgba(30, 30, 50, 0.98) 100%);
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 50px;
+  text-align: center;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.3s ease;
+}
+
+.game-over-icon {
+  font-size: 80px;
+  margin-bottom: 20px;
+  animation: bounce 0.5s ease;
+}
+
+.game-over-icon.success {
+  filter: drop-shadow(0 0 20px rgba(0, 255, 136, 0.5));
+}
+
+.game-over-icon.failure {
+  filter: drop-shadow(0 0 20px rgba(255, 51, 51, 0.5));
+}
+
+.game-over-modal h1 {
+  font-size: 36px;
+  margin: 0 0 15px;
+  color: #fff;
+}
+
+.game-over-message {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0 0 30px;
+}
+
+.game-over-stats {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-row:last-child {
+  border-bottom: none;
+}
+
+.stat-row span:first-child {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+}
+
+.stat-value {
+  color: #00aaff;
+  font-size: 18px;
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+}
+
+.game-over-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.action-button {
+  padding: 15px 30px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 150px;
+}
+
+.action-button.primary {
+  background: linear-gradient(135deg, #00aaff 0%, #0088cc 100%);
+  color: white;
+  box-shadow: 0 4px 20px rgba(0, 170, 255, 0.4);
+}
+
+.action-button.primary:hover {
+  background: linear-gradient(135deg, #00ccff 0%, #00aaff 100%);
+  box-shadow: 0 6px 30px rgba(0, 170, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+.action-button.secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.action-button.secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+

@@ -1,0 +1,553 @@
+.mobile-hud-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  font-family: 'Arial', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: white;
+  z-index: 1000;
+}
+
+/* Top Bar */
+.mobile-top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(180deg, rgba(26, 26, 46, 0.95) 0%, rgba(20, 20, 35, 0.9) 100%);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid rgba(0, 102, 204, 0.5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  z-index: 1001;
+}
+
+.top-speed-display {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+}
+
+.top-speed-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0066CC;
+  font-family: 'Courier New', monospace;
+  text-shadow: 0 0 10px rgba(0, 102, 204, 0.5);
+}
+
+.top-speed-unit {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 600;
+}
+
+.top-gear-display {
+  font-size: 36px;
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+  padding: 5px 15px;
+  border-radius: 8px;
+  text-shadow: 0 0 15px currentColor;
+}
+
+.top-gear-display.drive {
+  color: #00CC66;
+  background: rgba(0, 204, 102, 0.2);
+  border: 2px solid rgba(0, 204, 102, 0.5);
+}
+
+.top-gear-display.reverse {
+  color: #FF3333;
+  background: rgba(255, 51, 51, 0.2);
+  border: 2px solid rgba(255, 51, 51, 0.5);
+}
+
+.top-gear-display.neutral {
+  color: #FFAA00;
+  background: rgba(255, 170, 0, 0.2);
+  border: 2px solid rgba(255, 170, 0, 0.5);
+}
+
+.top-timer {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+  color: #00CC66;
+  text-shadow: 0 0 10px rgba(0, 204, 102, 0.5);
+}
+
+.top-timer.critical {
+  color: #FF3333;
+  text-shadow: 0 0 15px rgba(255, 51, 51, 0.8);
+  animation: blink 0.5s infinite;
+}
+
+/* Left Panel - Speed & Navigation */
+.mobile-left-panel {
+  position: absolute;
+  top: 70px;
+  left: 15px;
+  width: 180px;
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.9) 0%, rgba(20, 20, 35, 0.95) 100%);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(0, 102, 204, 0.3);
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.digital-speed-container {
+  text-align: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.digital-speed-value {
+  font-size: 48px;
+  font-weight: 700;
+  color: #0066CC;
+  font-family: 'Courier New', monospace;
+  line-height: 1;
+  text-shadow: 0 0 20px rgba(0, 102, 204, 0.8);
+  margin-bottom: 5px;
+}
+
+.digital-speed-unit {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.navigation-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nav-item {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  padding: 8px;
+}
+
+.nav-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.nav-value {
+  font-size: 12px;
+  color: #00CC66;
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+}
+
+/* Right Panel - Vehicle Status */
+.mobile-right-panel {
+  position: absolute;
+  top: 70px;
+  right: 15px;
+  width: 150px;
+  background: linear-gradient(135deg, rgba(26, 26, 46, 0.9) 0%, rgba(20, 20, 35, 0.95) 100%);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(0, 102, 204, 0.3);
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.rpm-gauge-container {
+  text-align: center;
+}
+
+.gauge-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.rpm-gauge {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+}
+
+.rpm-gauge-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(180deg);
+}
+
+.gauge-background {
+  stroke-dasharray: 314;
+  stroke-dashoffset: 0;
+}
+
+.gauge-fill {
+  transition: stroke-dasharray 0.3s ease, stroke 0.3s ease;
+}
+
+.rpm-value {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  font-family: 'Courier New', monospace;
+}
+
+.linear-gauge {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.gauge-bar {
+  width: 100%;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+
+.gauge-fill-bar {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.3s ease, background 0.3s ease;
+  box-shadow: 0 0 10px currentColor;
+}
+
+.gauge-fill-bar.fuel-gauge.high {
+  background: #00CC66;
+}
+
+.gauge-fill-bar.fuel-gauge.medium {
+  background: #FFAA00;
+}
+
+.gauge-fill-bar.fuel-gauge.low {
+  background: #FF3333;
+}
+
+.gauge-fill-bar.temp-gauge.cool {
+  background: #0066CC;
+}
+
+.gauge-fill-bar.temp-gauge.warm {
+  background: #FFAA00;
+}
+
+.gauge-fill-bar.temp-gauge.hot {
+  background: #FF3333;
+}
+
+.gauge-value-text {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  text-align: right;
+}
+
+/* Bottom Panel - Medical & Mission */
+.mobile-bottom-panel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(0deg, rgba(26, 26, 46, 0.95) 0%, rgba(20, 20, 35, 0.9) 100%);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-top: 2px solid rgba(0, 102, 204, 0.5);
+  padding: 15px 20px;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.medical-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.health-display {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.health-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.health-bar-container {
+  position: relative;
+  width: 100%;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.health-bar-fill {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.3s ease, background 0.3s ease;
+  box-shadow: 0 0 15px currentColor;
+}
+
+.health-bar-fill.high {
+  background: #00CC66;
+}
+
+.health-bar-fill.medium {
+  background: #FFAA00;
+}
+
+.health-bar-fill.low {
+  background: #FF3333;
+}
+
+.health-percentage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  font-family: 'Courier New', monospace;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.health-percentage.critical {
+  animation: blink 0.5s infinite;
+}
+
+.vitals-display {
+  display: flex;
+  gap: 10px;
+}
+
+.vital-display-item {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.vital-icon {
+  font-size: 24px;
+}
+
+.vital-value-display {
+  flex: 1;
+}
+
+.vital-label-small {
+  font-size: 9px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.5px;
+  margin-bottom: 3px;
+}
+
+.vital-number {
+  font-size: 20px;
+  font-weight: 700;
+  color: #00CC66;
+  font-family: 'Courier New', monospace;
+}
+
+.vital-number.warning {
+  color: #FFAA00;
+  animation: blink 1s infinite;
+}
+
+.mission-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mission-timer,
+.mission-objective,
+.hospital-distance {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mission-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.mission-time-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: #00CC66;
+  font-family: 'Courier New', monospace;
+}
+
+.mission-time-value.critical {
+  color: #FF3333;
+  animation: blink 0.5s infinite;
+}
+
+.mission-text {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+}
+
+.distance-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0066CC;
+  font-family: 'Courier New', monospace;
+}
+
+/* Steering Wheel Overlay */
+.steering-wheel-overlay {
+  position: absolute;
+  bottom: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 500;
+}
+
+.steering-wheel-icon {
+  font-size: 80px;
+  opacity: 0.3;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+}
+
+/* Emergency Overlay */
+.emergency-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 2000;
+}
+
+.emergency-flash {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 0, 0, 0.1);
+  animation: emergency-pulse 1s infinite;
+}
+
+.emergency-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  font-weight: 700;
+  color: #FF3333;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-shadow: 0 0 30px rgba(255, 51, 51, 0.8);
+  animation: emergency-text-pulse 0.5s infinite;
+}
+
+/* Animations */
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes emergency-pulse {
+  0%, 100% {
+    background: rgba(255, 0, 0, 0.1);
+  }
+  50% {
+    background: rgba(255, 0, 0, 0.3);
+  }
+}
+
+@keyframes emergency-text-pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .mobile-left-panel,
+  .mobile-right-panel {
+    width: 140px;
+    padding: 12px;
+  }
+
+  .digital-speed-value {
+    font-size: 36px;
+  }
+
+  .mobile-bottom-panel {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
